@@ -12,6 +12,7 @@ change occurs.
 **IMPORTANT: this "backdoor" DOES NOT provide automatic root access. you must already have gained root access on the victim's machine to use this!**
 
 ### Dependencies :
+- **systemd** (for systemd master race)
 - **ip tools suite** (for network scan)
 - **curl** (for network scan)
 - **ipecho.net/plain** website must be up (for network scan)
