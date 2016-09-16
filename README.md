@@ -1,4 +1,4 @@
-# MALLORY
+# MALLORY :door:
 This is a simple backdoor script i wrote, just for fun.
 The main requirement is a working `systemd` installation on your linux distro.
 
