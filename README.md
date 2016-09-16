@@ -9,6 +9,8 @@ In order to always have access to the public ip of the system it is installed on
 the backdoor will send emails to your email address each time a network or system configuration
 change occurs.
 
+_WARNING: emails will probably end up in your Spam folder!_
+
 **IMPORTANT: this "backdoor" DOES NOT provide automatic root access. you must already have gained root access on the victim's machine to use this!**
 
 ### Dependencies :
