@@ -26,7 +26,6 @@ _WARNING: emails will probably end up in your Spam folder!_
 - automate postfix installation on ubuntu might be problematic?
 - add open port checker/upnp active checker
 - postfix might have trouble sending to !=gmail domains on ubuntu?
-- upnpc -r switch works correctly only on newer versions, switch to -a
 - upnp port opening needs to repeat at boot time. easier to add a check to the backdoor.sh script to see if the port is open
 
 ### Files:
