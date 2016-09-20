@@ -22,6 +22,12 @@ _WARNING: emails will probably end up in your Spam folder!_
 - **md5sum** (for hashing of data)
 - **miniupnp** client (for upnp configuration)
 
+### TODO:
+- automate postfix installation on ubuntu might be problematic?
+- add open port checker/upnp active checker
+- postfix might have trouble sending to !=gmail domains on ubuntu?
+- upnpc -r switch works correctly only on newer versions, switch to -a
+
 ### Files:
 - `backdoor.sh` - the script that notifies us of network or system configuration changes. It also contains code for the installation or removal of the backdoor
 - `backdoor.timer` - it is a systemd timer unit file, commonly used for executing time-relative tasks. I've chosen to
