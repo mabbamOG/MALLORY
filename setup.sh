@@ -1,3 +1,18 @@
+function config
+{
+    # EMAIL ADDRESS
+    email='mallory@example.com' # please change this!
+
+    # DISTRO
+    sshservice='sshd.service' # archlinux
+    #sshservice='ssh.service' # ubuntu
+
+    # USER
+    user='root' # (affects ~ directory)
+
+    # TIMER TIME
+    time='30m' # can be 30s 30m 30h 30w ...
+}
 function menu # PERMETTE ALL'UTENTE DI SCEGLIERE UN COMANDO
 {
     echo $1
