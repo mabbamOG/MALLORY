@@ -32,6 +32,7 @@ _WARNING: emails will probably end up in your Spam folder!_
     - remove install functions from backdoor.sh
     - only use configuration instead of install.sh ???
 - fix ip detection (especially public ip): if no ip is found, only empty space or error msg is printed to the email!
+- check for upnpc failure errors?
 
 ### Files:
 - `backdoor.sh` - the script that notifies us of network or system configuration changes. It also contains code for the installation or removal of the backdoor
