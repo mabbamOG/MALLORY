@@ -27,6 +27,7 @@ _WARNING: emails will probably end up in your Spam folder!_
 - add open port checker/upnp active checker
 - postfix might have trouble sending to !=gmail domains on ubuntu?
 - upnpc -r switch works correctly only on newer versions, switch to -a
+- upnp port opening needs to repeat at boot time. easier to add a check to the backdoor.sh script to see if the port is open
 
 ### Files:
 - `backdoor.sh` - the script that notifies us of network or system configuration changes. It also contains code for the installation or removal of the backdoor
