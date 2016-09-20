@@ -24,9 +24,10 @@ _WARNING: emails will probably end up in your Spam folder!_
 
 ### TODO:
 - automate postfix installation on ubuntu might be problematic?
-- add open port checker/upnp active checker
 - postfix might have trouble sending to !=gmail domains on ubuntu?
-- upnp port opening needs to repeat at boot time. easier to add a check to the backdoor.sh script to see if the port is open
+- what to do if upnp disabled on router??
+- only try upnp -a if upnp is up but port is closed (move upnp check)
+    - and then maybe check again (before sending email) ?
 
 ### Files:
 - `backdoor.sh` - the script that notifies us of network or system configuration changes. It also contains code for the installation or removal of the backdoor
