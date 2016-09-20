@@ -18,7 +18,7 @@ _WARNING: emails will probably end up in your Spam folder!_
 - **ip tools suite** (for network scan)
 - **curl** (for network scan)
 - **ipecho.net/plain** website must be up (for network scan)
-- **postfix** or **sendmail** daemon running (for sending emails) - if you are using sendmail daemon, remember to edit backdoor.service file!
+- **postfix** daemon running (for sending emails)
 - **md5sum** (for hashing of data)
 - **miniupnp** client (for upnp configuration)
 
