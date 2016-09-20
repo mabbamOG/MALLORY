@@ -1,4 +1,4 @@
-# MALLORY
+# MALLORY :door:
 This is a simple backdoor script i wrote, just for fun.
 The main requirement is a working `systemd` installation on your linux distro.
 
@@ -9,15 +9,24 @@ In order to always have access to the public ip of the system it is installed on
 the backdoor will send emails to your email address each time a network or system configuration
 change occurs.
 
+_WARNING: emails will probably end up in your Spam folder!_
+
 **IMPORTANT: this "backdoor" DOES NOT provide automatic root access. you must already have gained root access on the victim's machine to use this!**
 
 ### Dependencies :
+- **systemd** (for systemd master race)
 - **ip tools suite** (for network scan)
 - **curl** (for network scan)
 - **ipecho.net/plain** website must be up (for network scan)
-- **postfix** or **sendmail** daemon running (for sending emails) - if you are using sendmail daemon, remember to edit backdoor.service file!
+- **postfix** daemon running (for sending emails)
 - **md5sum** (for hashing of data)
 - **miniupnp** client (for upnp configuration)
+
+### TODO:
+- automate postfix installation on ubuntu might be problematic?
+- add open port checker/upnp active checker
+- postfix might have trouble sending to !=gmail domains on ubuntu?
+- upnp port opening needs to repeat at boot time. easier to add a check to the backdoor.sh script to see if the port is open
 
 ### Files:
 - `backdoor.sh` - the script that notifies us of network or system configuration changes. It also contains code for the installation or removal of the backdoor
