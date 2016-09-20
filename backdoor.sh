@@ -67,9 +67,9 @@ function getdata # Gather Statistics
     [[ $upnp == 'ENABLED' ]] && upnpc -l | grep -E "TCP\s*2222->${ip_private}:22" &>/dev/null && port='OPEN' || port='CLOSED'
 
 # ECHO DATA
-    echo -e "IP PRIVATE\t   - $ip_private" # long live sed
+    echo -e "IP PRIVATE\t   - $ip_private"
     echo -e "IP ROUTER\t    - $ip_router"
-    echo -e "IP PUBLIC\t    - $ip_public" # -s kills progress output
+    echo -e "IP PUBLIC\t    - $ip_public"
     echo -e "SSH\t          -> $ssh"
     echo -e "UPNP\t         -> $upnp"
     echo -e "PORT\t         -> $port"
