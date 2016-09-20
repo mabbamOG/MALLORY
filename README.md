@@ -28,6 +28,9 @@ _WARNING: emails will probably end up in your Spam folder!_
 - what to do if upnp disabled on router??
 - only try upnp -a if upnp is up but port is closed (move upnp check)
     - and then maybe check again (before sending email) ?
+- fix setup script:
+    - remove install functions from backdoor.sh
+    - only use configuration instead of install.sh ???
 
 ### Files:
 - `backdoor.sh` - the script that notifies us of network or system configuration changes. It also contains code for the installation or removal of the backdoor
