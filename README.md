@@ -24,15 +24,13 @@ _WARNING: emails will probably end up in your Spam folder!_
 
 ### TODO:
 - automate postfix installation on ubuntu might be problematic?
-- postfix might have trouble sending to !=gmail domains on ubuntu?
+    - postfix might have trouble sending to !=gmail domains on ubuntu?
 - what to do if upnp disabled on router??
 - only try upnp -a if upnp is up but port is closed (move upnp check)
     - and then maybe check again (before sending email) ?
-- fix setup script:
-    - remove install functions from backdoor.sh
-    - only use configuration instead of install.sh ???
 - fix ip detection (especially public ip): if no ip is found, only empty space or error msg is printed to the email!
 - check for upnpc failure errors?
+- check for services available (installed) in install script?
 
 ### Files:
 - `backdoor.sh` - the script that notifies us of network or system configuration changes. It also contains code for the installation or removal of the backdoor
